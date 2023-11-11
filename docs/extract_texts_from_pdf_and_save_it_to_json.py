@@ -31,15 +31,22 @@ def extract_text_from_pdf(pdf_path):
 
 
 def save_data(number_of_pdfs):
+    str_counter = 0
     for i in range(number_of_pdfs):
         print(i)
-        result[i] = extract_text_from_pdf(f'pdf{i}.pdf')
+        texts = extract_text_from_pdf(f'pdf{i}.pdf')
+        for text in texts:
+            text = text.replace('\n', ' ')
+            if text == "":
+                continue
+            result[str_counter] = text
+            str_counter += 1
 
     with open('data.json', 'w') as f:
         f.write(json.dumps(result, indent=4))
 
 
 
-save_data(3919)
+save_data(10)
 
 
