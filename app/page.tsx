@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useChat } from "ai/react";
+import RoleComponent from "./role_component"
 
 type DataType = {
   context: any[];
@@ -20,7 +21,7 @@ export default function Chat() {
       {messages.length > 0
         ? messages.map((m, i) => (
             <div key={m.id} className="flex flex-col mb-6">
-              <b>{m.role === "user" ? "User: " : "AI: "}</b>
+              <RoleComponent m={m} />
 
               <small className="text-gray-500">
                 {parsedData?.[i]?.context
@@ -42,5 +43,8 @@ export default function Chat() {
         />
       </form>
     </div>
+
+
+
   );
 }

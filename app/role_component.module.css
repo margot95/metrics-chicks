@@ -1,0 +1,10 @@
+.user-style {
+  /* CSS styles for the user role */
+  color: blue;
+  font-size: 40px;
+}
+
+.ai-style {
+  /* CSS styles for the AI role */
+  color: red;
+}
