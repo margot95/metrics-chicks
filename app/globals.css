@@ -76,3 +76,11 @@ padding:10px
   padding: 5px;
   overflow-y: scroll;
 }
+
+.source {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  background-color: whitesmoke;
+  text-align: center;
+  margin: 1rem;
+}
