@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <link rel="icon" href="../images/favicon.ico" />
+      </head>
       <body className={inter.className}>
         <div className="chat-container">
           <div className="chat-header">simp!LAW</div>
