@@ -24,7 +24,7 @@ Source of data used to re-trained the model: https://entscheidsuche.ch/docs (PDF
 
 
 
-# To launch the code locally
+# To launch the chatbot app locally
 
 1. 🦙 Download Ollama and install it locally
 2. Run the Mistral model using:
