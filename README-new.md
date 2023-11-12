@@ -45,7 +45,10 @@ PUT collections/swiss-or
   }
 }
 
-8. Download our new custom snapshots: [swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip](https://github.com/margot95/metrics-chicks/files/13328437/swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip)
+
+8. Download our new custom snapshots: [swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip](https://github.com/margot95/metrics-chicks/files/13328437/swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip)  , [swiss-code-of-obligations-en-paraphrase-multilingual-mpnet-base-v2.zip](https://github.com/margot95/metrics-chicks/files/13328448/swiss-code-of-obligations-en-paraphrase-multilingual-mpnet-base-v2.zip) 
+
+
 
 9. Unzip the file using the terminal
 
