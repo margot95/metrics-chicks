@@ -23,6 +23,7 @@ next-env.d.ts
 # Project specific
 /ollama/
 /models/
+/create_embeddings/node_modules/
 
 # env files
 .env*
