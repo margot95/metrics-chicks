@@ -55,7 +55,9 @@ PUT collections/swiss-or
 10. Load our snapshot to Qdrant using the following code:
     
 ```
-curl -X POST 'http://localhost:6333/collections/swiss_law/snapshots/upload' -H 'Content-Type:multipart/form-data' -F 'snapshot=@[name_of_the_snapshot].snapshot'
+curl -X POST 'http://localhost:6333/collections/swiss_law/snapshots/upload' -H 'Content-Type:multipart/form-data' -F 'snapshot=@swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.snapshot'
+
+curl -X POST 'http://localhost:6333/collections/swiss_law/snapshots/upload' -H 'Content-Type:multipart/form-data' -F 'snapshot=@swiss-code-of-obligations-en-paraphrase-multilingual-mpnet-base-v2.snapshot'
 ```
 
 11. Copy the file `.env.local.example` and rename it to `.env`. Verify that all environment variables are correct.
