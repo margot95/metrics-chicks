@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+*.pnp.js
 
 # production
 /build
@@ -23,6 +23,10 @@ next-env.d.ts
 # Project specific
 /ollama/
 /models/
+/create_embeddings/node_modules/
+
+# pdf files
+*.pdf
 
 # env files
 .env*
