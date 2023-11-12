@@ -1,11 +1,11 @@
 export const userClasses = {
   mainClass: 'user-main',
-  smallClass: 'user-small',
-  borderClass: 'user-border'
+  titleClass: 'user-title',
+  linkClass: 'user-link',
 };
 
 export const aiClasses = {
   mainClass: 'ai-main',
-  smallClass: 'ai-small',
-  borderClass: 'ai-border'
+  titleClass: 'ai-title',
+  linkClass: 'ai-link'
 };
