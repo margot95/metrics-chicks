@@ -12,6 +12,10 @@ import json
 base_url = 'https://entscheidsuche.ch/docs/'
 result = {}
 
+#change folder name according to language l59-60
+language='de'
+#language='fr'
+
 
 def get_links(url):
     # Send request to the given URL

@@ -25,6 +25,9 @@ next-env.d.ts
 /models/
 /create_embeddings/node_modules/
 
+# pdf files
+.pdf
+
 # env files
 .env*
 
