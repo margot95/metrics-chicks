@@ -35,14 +35,44 @@ img {
   height: auto;
 }
 
-
-.user-style {
+.user-main{
+/* CSS styles for the user role */
+padding:10px
+}
+.user_small{
   /* CSS styles for the user role */
   color: blue;
+  padding:10px
+}
+.user-border{
+  background-color: lightblue;
+  border: 10px;
+  border-radius: 10px;
+  margin: 8px;
+  padding:8px;
 }
 
-.ai-style {
+
+.ai-main {
   /* CSS styles for the AI role */
   color: red;
-  margin-left: auto;
+
+}
+.ai-small {
+  /* CSS styles for the AI role */
+  color: red;
+}
+
+.ai-border{
+  background-color: lightgreen;
+  border: 10px;
+  border-radius: 10px;
+  margin: 8px;
+  padding: 8px;
+}
+
+.box{
+  border: 2px;
+  padding: 5px;
+  overflow-y: scroll;
 }

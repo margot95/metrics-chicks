@@ -17,20 +17,11 @@ export default function Chat() {
   );
 
   return (
-    <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
+    <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch overflow-scroll">
       {messages.length > 0
         ? messages.map((m, i) => (
-            <div key={m.id} className="flex flex-col mb-6">
-              <RoleComponent m={m} />
 
-              <small className="text-gray-500">
-                {parsedData?.[i]?.context
-                  ?.map(({ payload }) => payload.article)
-                  .join(", ")}
-              </small>
-
-              <p className="whitespace-pre-wrap">{m.content.trim()}</p>
-            </div>
+              <RoleComponent m={m} parsedData={parsedData} i={i} />
           ))
         : null}
 
