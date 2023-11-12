@@ -20,7 +20,7 @@ export default function Chat() {
       {messages.length > 0
         ? messages.map((m, i) => (
           <div key={m.id} className="flex flex-col mb-6">
-            <b>{m.role === "user" ? "You: " : "Simplaw: "}</b>
+            <b>{m.role === "user" ? "You: " : "Simp!Law: "}</b>
 
             <small className="source">
               {parsedData?.[i]?.context?.map(({ payload }, index, array) => (
