@@ -13,14 +13,18 @@ Conversational AI model used: [Mistral](https://mistral.ai/)
 
 Source of data used to re-trained the model: https://entscheidsuche.ch/docs (PDF files of Swiss jurisprudence). 
 
-Steps and associated files:
+
+
+# Steps and associated files:
 
 - Text extraction from pdf and write in into a json file → docs/download_pdf.py & docs/extract_texts_from_pdf_and_save_it_to_json.py
 - Preprocessing → docs/data-cleaning-fromjsontojson.py
 - Embeddings using https://huggingface.co/Xenova/paraphrase-multilingual-mpnet-base-v2 → create_embeddings/create_embeddings.js
 - Prompt engineering aimed at better legal assistance → app/api/chat/route.ts
 
-To launch the code locally: 
+
+
+# To launch the code locally: 
 
 1. 🦙 Download Ollama and install it locally
 2. Run the Mistral model using:
