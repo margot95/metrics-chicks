@@ -45,10 +45,12 @@ PUT collections/swiss-or
   }
 }
 
-8. Download our new custom snapshot (link)
+8. Download our new custom snapshots: [swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip](https://github.com/margot95/metrics-chicks/files/13328437/swiss-civil-code-de-paraphrase-multilingual-mpnet-base-v2.zip)
+
 9. Unzip the file using the terminal
 
 10. Load our snapshot to Qdrant using the following code:
+    
 ```
 curl -X POST 'http://localhost:6333/collections/swiss_law/snapshots/upload' -H 'Content-Type:multipart/form-data' -F 'snapshot=@[name_of_the_snapshot].snapshot'
 ```
