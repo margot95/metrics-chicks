@@ -20,6 +20,8 @@ export default function Chat() {
     <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch overflow-scroll">
       {messages.length > 0
         ? messages.map((m, i) => (
+          <div key={m.id} className="flex flex-col mb-6">
+            <b>{m.role === "user" ? "You: " : "Simp!Law: "}</b>
 
               <RoleComponent m={m} parsedData={parsedData} i={i} />
           ))
