@@ -1,3 +1,7 @@
+<img src="Simp!LAW Logo.png"
+     alt="logo"
+     style="float: left; margin-right: 10px;" />
+
 # AI Swiss Legal Assistant 🇨🇭 👩‍⚖️ 🤖
 
 This is a simple conversational-ui RAG (retrieval augmented generation) based on the Swiss Code of Obligations.
