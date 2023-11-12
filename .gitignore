@@ -24,6 +24,9 @@ next-env.d.ts
 /ollama/
 /models/
 
+# processed pdf files
+.pdf
+
 # env files
 .env*
 

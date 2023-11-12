@@ -6,7 +6,8 @@ import json
 
 
 result = {}
-
+language='de'
+#language='fr'
 
 def extract_text_from_pdf(pdf_path):
     # Open the provided PDF file
@@ -34,7 +35,7 @@ def save_data(number_of_pdfs):
     str_counter = 0
     for i in range(number_of_pdfs):
         print(i)
-        texts = extract_text_from_pdf(f'pdf{i}.pdf')
+        texts = extract_text_from_pdf(f'pdf{i}-{language}.pdf')
         for text in texts:
             text = text.replace('\n', ' ')
             if text == "":
