@@ -2,6 +2,9 @@
      alt="logo"
      style="float: left; margin-right: 10px;" />
 
+FOR OUR MORE RECENT README.md FILE, PLEASE GO TO -> README-new.md
+
+
 # AI Swiss Legal Assistant 🇨🇭 👩‍⚖️ 🤖
 
 This is a simple conversational-ui RAG (retrieval augmented generation) based on the Swiss Code of Obligations.
