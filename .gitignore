@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+*.pnp.js
 
 # production
 /build
@@ -26,7 +26,7 @@ next-env.d.ts
 /create_embeddings/node_modules/
 
 # pdf files
-.pdf
+*.pdf
 
 # env files
 .env*

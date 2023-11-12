@@ -12,6 +12,14 @@ import json
 base_url = 'https://entscheidsuche.ch/docs/'
 result = {}
 
+link_mapping = {'ZH_OG': 'https://entscheidsuche.ch/docs/ZH_Obergericht/',
+                'ZH_KS': 'https://entscheidsuche.ch/docs/ZH_Obergericht/',
+                'ZH_BK': 'https://entscheidsuche.ch/docs/ZH_Obergericht/',
+                'ZH_HG': 'https://entscheidsuche.ch/docs/ZH_Obergericht/',
+                'ZH_SR': 'https://entscheidsuche.ch/docs/ZH_Steuerrekurs/',
+                'JU_TC': 'https://entscheidsuche.ch/docs/JU_Gerichte/',
+                'JU_TP': 'https://entscheidsuche.ch/docs/JU_Gerichte/',}
+
 #change folder name according to language l59-60
 language='de'
 #language='fr'
@@ -49,16 +57,21 @@ def get_pdf_links(url):
             pdf_links.append(url+'/'+href.split('/')[-1])
     return pdf_links
 
-def download_pdf_and_save_text(base_url):
+def download_pdf_and_save_text(base_url, foldername='pdfs'):
     # Get the links from the base URL
     links = get_links(base_url)
+    links.sort(reverse=True)
     row_counter = 0
+    pdf_counter = 0
+    #print(links)
     for link in links:
+        if pdf_counter > 5000:
+            break
         pdf_links = get_pdf_links(link)
         for i, link in enumerate(pdf_links):
             print(link)
             response = requests.get(link)
-            filename = "pdfs/pdf"+str(i)+".pdf"
+            filename = f"{foldername}/{link.split('/')[-1]}"
             pdf = open(filename, 'wb')
             pdf.write(response.content)
             pdf.close()
@@ -67,30 +80,40 @@ def download_pdf_and_save_text(base_url):
                 text = text.replace('\n', ' ')
                 if text == "":
                     continue
-                result[row_counter] = {"article": text,
+                result[row_counter] = {"article": link.split('/')[-1].replace('.pdf', ''),
                                        "link": link,
                                        "headings": [],
-                                       "content": "",
+                                       "content": text,
                                        "contentHTML": ""}
                 row_counter += 1
             print("File ", i, " downloaded")
-            with open('../create_embeddings/data.json', 'w') as f:
-                f.write(json.dumps(result, indent=4))
+        pdf_counter += 1
+    with open('../create_embeddings/{foldername}_new.json', 'w') as f:
+        f.write(json.dumps(result, indent=4))
 
 
-def create_json(number_of_pdfs):
-    str_counter = 0
-    for i in range(number_of_pdfs):
+def create_json(foldername='pdfs'):
+    row_counter = 0
+    files = os.listdir(foldername)
+    links = get_links(base_url)
+    #for link in links:
+    #    print(link)
+    for i, filename in enumerate(files):
         print(i)
-        texts = extract_text_from_pdf(f'pdfs/pdf{i}.pdf')
-        for text in texts:
-            text = text.replace('\n', ' ')
-            if text == "":
-                continue
-            result[str_counter] = text
-            str_counter += 1
+        texts = extract_text_from_pdf(f'{foldername}/{filename}')
+        link = link_mapping[filename[:5]]
+        for page, text in enumerate(texts):
+                text = text.replace('\n', ' ')
+                if text == "":
+                    continue
+                result[row_counter] = {"article": f'#{page+1}',
+                                       "link": link+filename,
+                                       "headings": ["headings"],
+                                       "content": text,
+                                       "contentHTML": "contentHTML"}
+                row_counter += 1
 
-    with open('../create_embeddings/data.json', 'w') as f:
+    with open(f'../create_embeddings/{foldername}.json', 'w') as f:
         f.write(json.dumps(result, indent=4))
 
 
@@ -115,9 +138,9 @@ def extract_text_from_pdf(pdf_path):
     return extracted_texts
 
 
-#download_pdf_and_save_text(base_url, False)
+#download_pdf_and_save_text(base_url, 'pdfs_new')
 
 
-create_json(4637)
+create_json('pdfs_new')
 
 
