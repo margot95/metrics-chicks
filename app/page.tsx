@@ -19,8 +19,8 @@ export default function Chat() {
     <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
       {messages.length > 0
         ? messages.map((m, i) => (
-            <div key={m.id} className="flex flex-col mb-6">
-              <b>{m.role === "user" ? "User: " : "AI: "}</b>
+          <div key={m.id} className="flex flex-col mb-6">
+            <b>{m.role === "user" ? "You: " : "Simp!Law: "}</b>
 
               <small className="text-gray-500">
                 {parsedData?.[i]?.context

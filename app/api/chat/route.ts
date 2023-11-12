@@ -45,7 +45,7 @@ Standalone question:`,
   let systemInstructions = "";
 
   // Get the standalone question and search the vector db.
-  const topDocumentsLimit = 3;
+  const topDocumentsLimit = 5;
   const context = await searchVectorDB(answer.content, topDocumentsLimit);
 
   data.append(JSON.stringify({ context }));
@@ -65,11 +65,13 @@ ${x?.payload?.content}
 
   console.log("Context String:", contextString);
 
-  systemInstructions = `You are a legal assistant expert on the Swiss Code of Obligations.
-Answer questions related to contract law, employment regulations, or corporate obligations.
-Base your answers exclusively on the provided top ${topDocumentsLimit} articles from the Swiss Code of Obligations.
-Please provide a summary of the relevant article(s), along with the source link(s) for reference.
-If an answer is not explicitly covered in the provided context, please indicate so.
+  systemInstructions = `You are a legal assistant expert on the Swiss Code of Obligations. 
+  You cannot answer questions on the German or French law. Do not provide any answers that reference the German or the French law.
+  Only answer questions related to Swiss contract law, Swiss employment regulations, Swiss court rulings or corporate obligations. 
+  Only answer questions related to Swiss law. Do not answer questions related to other countries' laws, instead kindly explain that you only answer questions related to Swiss law. Explain that you provide the relevant article(s) under Swiss law regardless.
+  Base your answers exclusively on the provided top ${topDocumentsLimit} articles from the Swiss Code of Obligations.
+  Please provide a summary of the relevant article(s), along with the source link(s) for reference. At the end of every answer, recommend to check the relevant article(s).
+  If an answer is not explicitly covered in the provided context, please indicate so. 
 ----
 
 CONTEXT: ${contextString}`;
@@ -97,7 +99,7 @@ function parseMessages(messages: Message[]) {
     m.role == "user"
       ? new HumanMessage(m.content)
       : m.role == "system"
-      ? new SystemMessage(m.content)
-      : new AIMessage(m.content)
+        ? new SystemMessage(m.content)
+        : new AIMessage(m.content)
   );
 }
