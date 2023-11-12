@@ -8,6 +8,8 @@ from urllib.parse import urljoin
 
 # Base URL of the site to scrape
 base_url = 'https://entscheidsuche.ch/docs/'
+
+#change folder name according to language l59-60
 language='de'
 #language='fr'
 
@@ -52,11 +54,13 @@ def download_pdf(base_url):
         for i, link in enumerate(pdf_links):
             print(link)
             response = requests.get(link)
-            pdf = open("pdf"+str(i)+"-"+language+".pdf", 'wb')
+            #l59 for saving German pdf to German folder, l60 for French
+            filename = os.path.join("pdf_files_de", "pdf"+str(i)+"-"+language+".pdf")
+            #filename = os.path.join("pdf_files_fr", "pdf"+str(i)+"-"+language+".pdf")
+            pdf = open(filename, 'wb')
             pdf.write(response.content)
             pdf.close()
             print("File ", i, " downloaded")
 
 
 download_pdf(base_url)
-
