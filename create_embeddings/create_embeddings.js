@@ -8,7 +8,8 @@ import path from "path";
 
 export default async function RUN() {
   const jsonText = await fs.readFile(
-    path.join(process.cwd(), "pdf_files_fr_new.json"),
+    //path.join(process.cwd(), "pdf_files_fr_new.json"),
+    path.join(process.cwd(), "pdfs_new.json"),
     "utf8"
   );
 
@@ -18,8 +19,13 @@ export default async function RUN() {
   //console.log(articlesData);
   const articles = [];
 
+  let ind = 0;
   Object.entries(articlesData).forEach(([key, value]) => {
     // Assuming each articleData is a string of HTML content
+    ind++;
+    if (ind >= 20000) {
+      return;
+    }
     const structuredData = {
       headings: value['headings'],
       article: value['article'],
@@ -83,7 +89,7 @@ export default async function RUN() {
 
      //Insert into qdrant
 
-     await client.upsert('swiss_law', {
+     await client.upsert('swiss-law', {
        wait: true,
        points: points,
      });
@@ -110,7 +116,7 @@ function chunkArray(array = [], chunkSize) {
 
 const result = await RUN();
 
-console.log(result);
+//console.log(result);
 
 export function htmlToMarkdown(htmlContent) {
   return (
