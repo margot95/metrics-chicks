@@ -70,8 +70,24 @@ def download_pdf_and_save_text(base_url):
                                        "contentHTML": ""}
                 row_counter += 1
             print("File ", i, " downloaded")
-            with open('data.json', 'w') as f:
+            with open('../create_embeddings/data.json', 'w') as f:
                 f.write(json.dumps(result, indent=4))
+
+
+def create_json(number_of_pdfs):
+    str_counter = 0
+    for i in range(number_of_pdfs):
+        print(i)
+        texts = extract_text_from_pdf(f'pdfs/pdf{i}.pdf')
+        for text in texts:
+            text = text.replace('\n', ' ')
+            if text == "":
+                continue
+            result[str_counter] = text
+            str_counter += 1
+
+    with open('../create_embeddings/data.json', 'w') as f:
+        f.write(json.dumps(result, indent=4))
 
 
 def extract_text_from_pdf(pdf_path):
@@ -95,8 +111,9 @@ def extract_text_from_pdf(pdf_path):
     return extracted_texts
 
 
-download_pdf_and_save_text(base_url)
+#download_pdf_and_save_text(base_url, False)
 
 
+create_json(4637)
 
 
