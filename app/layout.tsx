@@ -20,9 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-
-        {children}
-        </body>
+        <div className="chat-container">
+          <div className="chat-header">simp!LAW</div>
+            <div>{children}</div>
+        </div>
+      </body>
     </html>
+
   );
 }

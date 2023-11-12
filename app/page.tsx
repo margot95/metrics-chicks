@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useChat } from "ai/react";
+import RoleComponent from "./role_component"
 
 type DataType = {
   context: any[];
@@ -16,45 +17,25 @@ export default function Chat() {
   );
 
   return (
-    <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
+    <div className="">
       {messages.length > 0
         ? messages.map((m, i) => (
-          <div key={m.id} className="flex flex-col mb-6">
-            <b>{m.role === "user" ? "You: " : "Simp!Law: "}</b>
 
-              <small className="text-gray-500">
-                {parsedData?.[i]?.context
-                  ?.map(({ payload }) => payload.article)
-                  .join(", ")}
-              </small>
-
-              <p className="whitespace-pre-wrap">{m.content.trim()}</p>
-            </div>
+              <RoleComponent m={m} parsedData={parsedData} i={i} />
           ))
         : null}
 
       <form onSubmit={handleSubmit}>
         <input
-          className="fixed w-full max-w-md bottom-0 border border-gray-300 rounded mb-8 shadow-xl p-2"
+          className=" chat-input"
           value={input}
           placeholder="Say something..."
           onChange={handleInputChange}
         />
       </form>
     </div>
+
+
+
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

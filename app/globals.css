@@ -2,79 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 .user-main{
-/* CSS styles for the user role */
-padding:10px
+  background-color: rgb(255, 241, 239);
+  color: #3b3b3b;
+  text-align: right;
 }
-.user_small{
-  /* CSS styles for the user role */
-  color: blue;
-  padding:10px
+
+.user-title{
+  font-weight: bold;
 }
-.user-border{
-  background-color: lightblue;
-  border: 10px;
-  border-radius: 10px;
-  margin: 8px;
-  padding:8px;
+
+.ai-main{
+  background-color: #ecf0f1;
+  color: #333;
+}
+
+.ai-title{
+  font-weight: bold;
+}
+.ai-link{
+  /*color: #007BFF; /* Set the link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the text bold, if desired */
+}
+.ai-link:hover{
+  text-decoration: underline;
 }
 
 
-.ai-main {
-  /* CSS styles for the AI role */
-  color: red;
-
-}
-.ai-small {
-  /* CSS styles for the AI role */
-  color: red;
-}
-
-.ai-border{
-  background-color: lightgreen;
-  border: 10px;
-  border-radius: 10px;
-  margin: 8px;
-  padding: 8px;
-}
 
 .box{
-  border: 2px;
-  padding: 5px;
-  overflow-y: scroll;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .source {
@@ -84,3 +46,62 @@ padding:10px
     text-align: center;
     margin: 1rem;
   }
+
+/*MAIN CSS*/
+html
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+/* LAYOUT CLASSES*/
+.chat-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: hsl(0, 67%, 49%);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-body {
+    padding: 15px;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.user-message, .bot-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: rgb(255, 241, 239);
+    color: #3b3b3b;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #ecf0f1;
+    color: #333;
+}
+
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 10px;
+}
